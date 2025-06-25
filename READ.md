@@ -23,6 +23,7 @@ A modern, responsive portfolio website showcasing my development skills and proj
 ## Getting Started
 1. Clone this repository
 2. Open `index.html` in your browser
+3. Right click and open with live server
 
 ## Contact
 - Email: your.email@example.com
