@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melissa Angwenyi - Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .code-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        /* Custom animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.6); }
+        }
+        
+        @keyframes slideInLeft {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .animate-glow {
+            animation: glow 3s ease-in-out infinite;
+        }
+        
+        .animate-slide-in {
+            animation: slideInLeft 0.8s ease-out;
+        }
+        
+        /* Custom gradient backgrounds */
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        /* Glassmorphism effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Navigation active state */
+        .nav-active {
+            background: rgba(59, 130, 246, 0.2);
+            border-radius: 20px;
+        }
+        
+        /* Particle background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(59, 130, 246, 0.3);
+            border-radius: 50%;
+            animation: float 8s infinite linear;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+    <!-- Particle Background -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold code-font text-blue-400">
+                    &lt;Eng Melissa Angwenyi /&gt;
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link px-4 py-2 hover:text-blue-400 transition-all duration-300">Home</a>
+                    <a href="#about" class="nav-link px-4 py-2 hover:text-blue-400 transition-all duration-300">About</a>
+                    <a href="#projects" class="nav-link px-4 py-2 hover:text-blue-400 transition-all duration-300">Projects</a>
+                    <a href="#contact" class="nav-link px-4 py-2 hover:text-blue-400 transition-all duration-300">Contact</a>
+                </div>
+                <button class="md:hidden text-2xl" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="flex flex-col space-y-4 mt-4 pb-4">
+                    <a href="#home" class="nav-link px-4 py-2 hover:text-blue-400 transition-all duration-300">Home</a>
+                    <a href="#about" class="nav-link px-4 py-2 hover:text-blue-400 transition-all duration-300">About</a>
+                    <a href="#projects" class="nav-link px-4 py-2 hover:text-blue-400 transition-all duration-300">Projects</a>
+                    <a href="#contact" class="nav-link px-4 py-2 hover:text-blue-400 transition-all duration-300">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative pt-20">
+        <div class="container mx-auto px-6 text-center">
+            <div class="animate-slide-in">
+                <div class="mb-8">
+                    <img src="images/melissa.jpg" 
+                         alt="My Professional Photo" 
+                         class="w-48 h-48 rounded-full mx-auto border-4 border-blue-400 animate-glow object-cover" style="width: 200px; height: 200px;">
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 gradient-text">
+                    Hi, I'm <span class="text-blue-400">Melissa Angwenyi</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                    A passionate <span class="text-blue-400 code-font">Full-Stack Developer</span> 
+                    crafting digital experiences with modern technologies
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#projects" class="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-gray-900 px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Floating Code Elements -->
+        <div class="absolute top-1/4 left-10 animate-float">
+            <div class="code-font text-blue-400 text-lg opacity-20">&lt;html&gt;</div>
+        </div>
+        <div class="absolute top-1/3 right-10 animate-float" style="animation-delay: 2s;">
+            <div class="code-font text-purple-400 text-lg opacity-20">function()</div>
+        </div>
+        <div class="absolute bottom-1/4 left-20 animate-float" style="animation-delay: 4s;">
+            <div class="code-font text-green-400 text-lg opacity-20">{code}</div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
+                About <span class="text-blue-400">Me</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        I'm a dedicated developer with a passion for creating innovative solutions. 
+                        My journey in tech started with curiosity and has evolved into expertise 
+                        across multiple programming languages and frameworks.
+                    </p>
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        I believe in writing clean, efficient code and creating user experiences 
+                        that make a difference. When I'm not coding, you'll find me exploring 
+                        new technologies or contributing to open-source projects.
+                    </p>
+                    
+                    <!-- Skills Grid -->
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8">
+                        <div class="bg-gray-700 p-4 rounded-lg text-center card-hover">
+                            <i class="fab fa-html5 text-3xl text-orange-500 mb-2"></i>
+                            <p class="font-semibold">HTML5</p>
+                        </div>
+                        <div class="bg-gray-700 p-4 rounded-lg text-center card-hover">
+                            <i class="fab fa-css3-alt text-3xl text-blue-500 mb-2"></i>
+                            <p class="font-semibold">CSS3</p>
+                        </div>
+                        <div class="bg-gray-700 p-4 rounded-lg text-center card-hover">
+                            <i class="fab fa-js text-3xl text-yellow-500 mb-2"></i>
+                            <p class="font-semibold">JavaScript</p>
+                        </div>
+                        <div class="bg-gray-700 p-4 rounded-lg text-center card-hover">
+                            <i class="fab fa-python text-3xl text-green-500 mb-2"></i>
+                            <p class="font-semibold">Python</p>
+                        </div>
+                        <div class="bg-gray-700 p-4 rounded-lg text-center card-hover">
+                            <i class="fab fa-react text-3xl text-cyan-500 mb-2"></i>
+                            <p class="font-semibold">React</p>
+                        </div>
+                        <div class="bg-gray-700 p-4 rounded-lg text-center card-hover">
+                            <i class="fas fa-wind text-3xl text-teal-500 mb-2"></i>
+                            <p class="font-semibold">Tailwind</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="bg-gray-700 p-6 rounded-lg glass">
+                        <div class="code-font text-sm">
+                            <div class="text-gray-400">// About me in code</div>
+                            <div class="text-blue-400">const <span class="text-white">developer</span> = {</div>
+                            <div class="ml-4">
+                                <div><span class="text-green-400">name</span>: <span class="text-yellow-300">"Melissa Angwenyi"</span>,</div>
+                                <div><span class="text-green-400">role</span>: <span class="text-yellow-300">"Full-Stack Developer"</span>,</div>
+                                <div><span class="text-green-400">location</span>: <span class="text-yellow-300">"Nairobi, Kenya"</span>,</div>
+                                <div><span class="text-green-400">passions</span>: [</div>
+                                <div class="ml-4">
+                                    <div><span class="text-yellow-300">"Clean Code"</span>,</div>
+                                    <div><span class="text-yellow-300">"Problem Solving"</span>,</div>
+                                    <div><span class="text-yellow-300">"Innovation"</span></div>
+                                </div>
+                                <div>],</div>
+                                <div><span class="text-green-400">currentFocus</span>: <span class="text-yellow-300">"Building Amazing UIs"</span></div>
+                            </div>
+                            <div class="text-blue-400">};</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
+                My <span class="text-blue-400">Projects</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <article class="bg-gray-800 rounded-lg overflow-hidden card-hover">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                        <i class="fab fa-python text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Python Data Analyzer</h3>
+                        <p class="text-gray-300 mb-4">
+                            A comprehensive data analysis tool built with Python, featuring 
+                            data visualization and statistical analysis capabilities.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-600 text-xs px-2 py-1 rounded">Python</span>
+                            <span class="bg-green-600 text-xs px-2 py-1 rounded">Pandas</span>
+                            <span class="bg-purple-600 text-xs px-2 py-1 rounded">Matplotlib</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-blue-400 hover:text-blue-300 transition-colors">
+                                <i class="fab fa-github mr-1"></i>Code
+                            </a>
+                            <a href="#" class="text-blue-400 hover:text-blue-300 transition-colors">
+                                <i class="fas fa-external-link-alt mr-1"></i>Demo
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="bg-gray-800 rounded-lg overflow-hidden card-hover">
+                    <div class="h-48 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
+                        <i class="fas fa-globe text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Responsive Web App</h3>
+                        <p class="text-gray-300 mb-4">
+                            A modern, responsive web application built with HTML, CSS, and JavaScript,
+                            featuring smooth animations and mobile-first design.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-orange-600 text-xs px-2 py-1 rounded">HTML5</span>
+                            <span class="bg-blue-600 text-xs px-2 py-1 rounded">CSS3</span>
+                            <span class="bg-yellow-600 text-xs px-2 py-1 rounded">JavaScript</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-blue-400 hover:text-blue-300 transition-colors">
+                                <i class="fab fa-github mr-1"></i>Code
+                            </a>
+                            <a href="#" class="text-blue-400 hover:text-blue-300 transition-colors">
+                                <i class="fas fa-external-link-alt mr-1"></i>Live Site
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="bg-gray-800 rounded-lg overflow-hidden card-hover">
+                    <div class="h-48 bg-gradient-to-br from-pink-500 to-red-600 flex items-center justify-center">
+                        <i class="fas fa-mobile-alt text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Mobile-First Design</h3>
+                        <p class="text-gray-300 mb-4">
+                            A beautiful, mobile-first website design showcasing modern UI/UX principles
+                            and responsive design techniques.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-teal-600 text-xs px-2 py-1 rounded">Tailwind CSS</span>
+                            <span class="bg-indigo-600 text-xs px-2 py-1 rounded">Responsive</span>
+                            <span class="bg-pink-600 text-xs px-2 py-1 rounded">UI/UX</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-blue-400 hover:text-blue-300 transition-colors">
+                                <i class="fab fa-github mr-1"></i>Code
+                            </a>
+                            <a href="#" class="text-blue-400 hover:text-blue-300 transition-colors">
+                                <i class="fas fa-external-link-alt mr-1"></i>Preview
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
+                Get <span class="text-blue-400">In Touch</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6">Let's Connect!</h3>
+                        <p class="text-gray-300 text-lg leading-relaxed">
+                            I'm always open to discussing new opportunities, 
+                            interesting projects, or just having a chat about technology. 
+                            Feel free to reach out through any of the platforms below.
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <a href="mailto:melissaangwenyi@gmail.com" class="flex items-center space-x-4 text-gray-300 hover:text-blue-400 transition-colors group">
+                            <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <span class="text-lg">melissaangwenyi@gmail.com</span>
+                        </a>
+                        
+                        <a href="https://github.com/melissamoraa" target="_blank" class="flex items-center space-x-4 text-gray-300 hover:text-blue-400 transition-colors group">
+                            <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <i class="fab fa-github text-xl"></i>
+                            </div>
+                            <span class="text-lg">github.com/melissamoraa</span>
+                        </a>
+                        
+                        <a href="https://instagram.com/yurrritsmel" target="_blank" class="flex items-center space-x-4 text-gray-300 hover:text-blue-400 transition-colors group">
+                            <div class="w-12 h-12 bg-sky-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </div>
+                            <span class="text-lg">@yurrritsmel</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="bg-gray-700 p-8 rounded-lg glass">
+                    <form class="space-y-6" id="contactForm">
+                        <div>
+                            <label for="name" class="block text-sm font-medium mb-2">Full Name</label>
+                            <input type="text" id="name" name="name" required 
+                                   class="w-full px-4 py-3 bg-gray-600 border border-gray-500 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300"
+                                   placeholder="Enter your full name">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium mb-2">Email Address</label>
+                            <input type="email" id="email" name="email" required 
+                                   class="w-full px-4 py-3 bg-gray-600 border border-gray-500 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300"
+                                   placeholder="Enter your email address">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium mb-2">Subject</label>
+                            <select id="subject" name="subject" required 
+                                    class="w-full px-4 py-3 bg-gray-600 border border-gray-500 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300">
+                                <option value="">Select a subject</option>
+                                <option value="collaboration">Collaboration</option>
+                                <option value="job-opportunity">Job Opportunity</option>
+                                <option value="question">General Question</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" required 
+                                      class="w-full px-4 py-3 bg-gray-600 border border-gray-500 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300 resize-none"
+                                      placeholder="Tell me about your project or inquiry..."></textarea>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <input type="checkbox" id="privacy" name="privacy" required class="mr-3">
+                            <label for="privacy" class="text-sm text-gray-300">
+                                I agree to the privacy policy and terms of service
+                            </label>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 focus:ring-2 focus:ring-blue-400">
+                            <i class="fas fa-paper-plane mr-2"></i>Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12 border-t border-gray-700">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-8">
+                <div class="text-3xl font-bold code-font text-blue-400 mb-4">
+                    &lt;Eng Melissa Angwenyi /&gt;
+                </div>
+                <p class="text-gray-400 max-w-md mx-auto">
+                    Building the future, one line of code at a time.
+                </p>
+            </div>
+            
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="https://github.com/melissamoraa" target="_blank" class="text-gray-400 hover:text-white text-2xl transition-colors">
+                    <i class="fab fa-github"></i>
+                </a>
+            
+                <a href="https://instagram.com/yurrritsmel" target="_blank" class="text-gray-400 hover:text-white text-2xl transition-colors">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:melissaangwenyi@gmail.com" class="text-gray-400 hover:text-white text-2xl transition-colors">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8">
+                <p class="text-gray-400">
+                    © 2025 Melissa Angwenyi. All rights reserved. Built with ❤️ and lots of ☕
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Active navigation highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const sectionHeight = section.offsetHeight;
+                if (sectionTop <= 100 && sectionTop + sectionHeight > 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('nav-active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('nav-active');
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I\'ll get back to you soon.');
+            this.reset();
+        });
+
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 10 + 5) + 's';
+                particle.style.animationDelay = Math.random() * 10 + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Initialize particles on load
+        window.addEventListener('load', createParticles);
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply scroll animations to elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.card-hover, article, .bg-gray-700');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
