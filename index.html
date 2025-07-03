@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Melissa Angwenyi - Developer Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+  tailwind.config = {
+    darkMode: 'class', // Enable class-based dark mode
+  }
+</script>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -91,12 +97,18 @@
         }
     </style>
 </head>
-<body class="bg-gray-900 text-white overflow-x-hidden">
+<body class="bg-gray-900 text-white overflow-x-hidden dark:bg-white dark:text-gray-900">
+
     <!-- Particle Background -->
     <div class="particles" id="particles"></div>
     
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass">
+    <nav class="fixed top-0 w-full z-50 glass dark:bg-gray-200 dark:text-gray-800">
+
+        <button id="toggleTheme" class="text-white hover:text-blue-400 transition-colors duration-300 text-xl">
+        <i class="fas fa-moon"></i>
+        </button>
+
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div class="text-2xl font-bold code-font text-blue-400">
@@ -125,7 +137,9 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center relative pt-20">
+    <section id="home" class="min-h-screen flex items-center justify-center relative pt-20 dark:bg-gray-100 dark:text-black">
+        
+
         <div class="container mx-auto px-6 text-center">
             <div class="animate-slide-in">
                 <div class="mb-8">
@@ -136,7 +150,7 @@
                 <h1 class="text-5xl md:text-7xl font-bold mb-6 gradient-text">
                     Hi, I'm <span class="text-blue-400">Melissa Angwenyi</span>
                 </h1>
-                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                <p class="text-xl md:text-2xl text-gray-300 dark:text-gray-800 mb-8 max-w-3xl mx-auto">
                     A passionate <span class="text-blue-400 code-font">Full-Stack Developer</span> 
                     crafting digital experiences with modern technologies
                 </p>
@@ -164,7 +178,12 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-gray-800">
+
+    <section id="about" class="py-20 bg-gray-800 dark:bg-gray-100 dark:text-black">
+
+      
+
+
         <div class="container mx-auto px-6">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
                 About <span class="text-blue-400">Me</span>
@@ -185,27 +204,27 @@
                     
                     <!-- Skills Grid -->
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8">
-                        <div class="bg-gray-700 p-4 rounded-lg text-center card-hover">
+                        <div class="bg-gray-700 p-4 dark:bg-gray-200 dark:text-black rounded-lg text-center card-hover">
                             <i class="fab fa-html5 text-3xl text-orange-500 mb-2"></i>
                             <p class="font-semibold">HTML5</p>
                         </div>
-                        <div class="bg-gray-700 p-4 rounded-lg text-center card-hover">
+                        <div class="bg-gray-700 p-4 dark:bg-gray-200 dark:text-black rounded-lg text-center card-hover">
                             <i class="fab fa-css3-alt text-3xl text-blue-500 mb-2"></i>
                             <p class="font-semibold">CSS3</p>
                         </div>
-                        <div class="bg-gray-700 p-4 rounded-lg text-center card-hover">
+                        <div class="bg-gray-700 p-4 dark:bg-gray-200 dark:text-black rounded-lg text-center card-hover">
                             <i class="fab fa-js text-3xl text-yellow-500 mb-2"></i>
                             <p class="font-semibold">JavaScript</p>
                         </div>
-                        <div class="bg-gray-700 p-4 rounded-lg text-center card-hover">
+                        <div class="bg-gray-700 p-4 dark:bg-gray-200 dark:text-black rounded-lg text-center card-hover">
                             <i class="fab fa-python text-3xl text-green-500 mb-2"></i>
                             <p class="font-semibold">Python</p>
                         </div>
-                        <div class="bg-gray-700 p-4 rounded-lg text-center card-hover">
+                        <div class="bg-gray-700 p-4 dark:bg-gray-200 dark:text-black rounded-lg text-center card-hover">
                             <i class="fab fa-react text-3xl text-cyan-500 mb-2"></i>
                             <p class="font-semibold">React</p>
                         </div>
-                        <div class="bg-gray-700 p-4 rounded-lg text-center card-hover">
+                        <div class="bg-gray-700 p-4 dark:bg-gray-200 dark:text-black rounded-lg text-center card-hover">
                             <i class="fas fa-wind text-3xl text-teal-500 mb-2"></i>
                             <p class="font-semibold">Tailwind</p>
                         </div>
@@ -239,7 +258,8 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-gray-900">
+    <section id="projects" class="py-20 bg-gray-900 dark:bg-white dark:text-black">
+
         <div class="container mx-auto px-6">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
                 My <span class="text-blue-400">Projects</span>
@@ -247,7 +267,7 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project 1: Kawasi Hostels Booking System -->
-                <article class="bg-gray-800 rounded-lg overflow-hidden card-hover">
+                <article class="bg-gray-800 dark:bg-gray-200 dark:text-black rounded-lgoverflow-hidden card-hover">
                     <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
                         <i class="fas fa-bed text-6xl text-white"></i>
                     </div>
@@ -274,7 +294,7 @@
                 </article>
 
                 <!-- Project 2: Robot Factory Escape Game -->
-                <article class="bg-gray-800 rounded-lg overflow-hidden card-hover">
+                <article class="bg-gray-800 dark:bg-gray-200 dark:text-black rounded-lgoverflow-hidden card-hover">
                     <div class="h-48 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
                         <i class="fas fa-robot text-6xl text-white"></i>
                     </div>
@@ -301,7 +321,7 @@
                 </article>
 
                 <!-- Project 3: Personal Journey Journal App -->
-                <article class="bg-gray-800 rounded-lg overflow-hidden card-hover">
+                <article class="bg-gray-800 dark:bg-gray-200 dark:text-black rounded-lgoverflow-hidden card-hover">
                     <div class="h-48 bg-gradient-to-br from-pink-500 to-red-600 flex items-center justify-center">
                         <i class="fas fa-journal-whills text-6xl text-white"></i>
                     </div>
@@ -332,7 +352,8 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-800">
+    <section id="contact" class="py-20 bg-gray-800 dark:bg-gray-100 dark:text-black">
+
         <div class="container mx-auto px-6">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
                 Get <span class="text-blue-400">In Touch</span>
@@ -375,26 +396,27 @@
                 </div>
                 
                 <!-- Contact Form -->
-                <div class="bg-gray-700 p-8 rounded-lg glass">
+                <div class="bg-gray-700 dark:bg-gray-200 dark:text-black p-8 rounded-lg glass">
+
                     <form class="space-y-6" id="contactForm">
                         <div>
                             <label for="name" class="block text-sm font-medium mb-2">Full Name</label>
                             <input type="text" id="name" name="name" required 
-                                   class="w-full px-4 py-3 bg-gray-600 border border-gray-500 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300"
+                                   class="w-full px-4 py-3 bg-gray-600 dark:bg-white dark:text-black border border-gray-500 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300"
                                    placeholder="Enter your full name">
                         </div>
                         
                         <div>
                             <label for="email" class="block text-sm font-medium mb-2">Email Address</label>
                             <input type="email" id="email" name="email" required 
-                                   class="w-full px-4 py-3 bg-gray-600 border border-gray-500 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300"
+                                   class="w-full px-4 py-3 bg-gray-600 dark:bg-white dark:text-black border border-gray-500 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300"
                                    placeholder="Enter your email address">
                         </div>
                         
                         <div>
                             <label for="subject" class="block text-sm font-medium mb-2">Subject</label>
                             <select id="subject" name="subject" required 
-                                    class="w-full px-4 py-3 bg-gray-600 border border-gray-500 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300">
+                                    class="w-full px-4 py-3 bg-gray-600 dark:bg-white dark:text-black border border-gray-500 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300">
                                 <option value="">Select a subject</option>
                                 <option value="collaboration">Collaboration</option>
                                 <option value="job-opportunity">Job Opportunity</option>
@@ -406,7 +428,7 @@
                         <div>
                             <label for="message" class="block text-sm font-medium mb-2">Message</label>
                             <textarea id="message" name="message" rows="5" required 
-                                      class="w-full px-4 py-3 bg-gray-600 border border-gray-500 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300 resize-none"
+                                      class="w-full px-4 py-3 bg-gray-600 dark:bg-white dark:text-black border border-gray-500 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300 resize-none"
                                       placeholder="Tell me about your project or inquiry..."></textarea>
                         </div>
                         
@@ -428,7 +450,8 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 py-12 border-t border-gray-700">
+    <footer class="bg-gray-900 dark:bg-gray-200 dark:text-black py-12 border-t border-gray-700">
+
         <div class="container mx-auto px-6 text-center">
             <div class="mb-8">
                 <div class="text-3xl font-bold code-font text-blue-400 mb-4">
@@ -558,6 +581,10 @@
                 observer.observe(el);
             });
         });
+        document.getElementById('toggleTheme').addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+});
+
     </script>
 </body>
 </html>
